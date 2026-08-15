@@ -137,10 +137,31 @@
     </div>
 
 </div>
+
+<!-- PAGE 3 - GIFT -->
+<div class="page3" id="page3">
+
+    <h1>🎁 Ek chhota sa gift hai...</h1>
+
+    <div class="gift-box">
+        🎁
+    </div>
+
+    <button class="open-gift-button" onclick="openGift()">
+        Open 🎁
+    </button>
+
+</div>
+
     <script>
     function startWebsite() {
         document.querySelector(".page").style.display = "none";
         document.getElementById("page2").style.display = "flex";
+    }
+
+    function openGift() {
+        document.getElementById("page2").style.display = "none";
+        document.getElementById("page3").style.display = "flex";
     }
 </script>
 
