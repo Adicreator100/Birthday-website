@@ -68,6 +68,46 @@
         .start-button:active {
             transform: translateX(-50%) scale(0.96);
         }
+    /* PAGE 2 */
+.page2 {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #073b9c, #1765c5);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+.page2 h1 {
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+
+.choices {
+    display: flex;
+    gap: 40px;
+}
+
+.choice-button {
+    width: 220px;
+    height: 130px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #073b9c;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transition: 0.2s;
+}
+
+.choice-button:hover {
+    transform: scale(1.08);
+}
     </style>
 </head>
 
@@ -79,11 +119,32 @@
         </button>
     </div>
 
+    <!-- PAGE 2 -->
+<div class="page2" id="page2">
+
+    <h1>Okay, ab tum decide karo 👀</h1>
+
+    <div class="choices">
+
+        <button class="choice-button">
+            🎁<br>
+            Gift
+        </button>
+
+        <button class="choice-button">
+            🎮<br>
+            Game
+        </button>
+
+    </div>
+
+</div>
     <script>
-        function startWebsite() {
-            alert("Page 2 coming next 😭");
-        }
-    </script>
+    function startWebsite() {
+        document.querySelector(".page").style.display = "none";
+        document.getElementById("page2").style.display = "flex";
+    }
+</script>
 
 </body>
 </html>
