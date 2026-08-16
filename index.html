@@ -75,12 +75,17 @@
             display: none;
             width: 100vw;
             height: 100vh;
+
             background: linear-gradient(135deg, #073b9c, #1765c5);
+
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
             color: white;
             text-align: center;
+
+            padding: 20px;
         }
 
         .page2 h1 {
@@ -91,19 +96,27 @@
         .choices {
             display: flex;
             gap: 40px;
+            justify-content: center;
+            align-items: center;
         }
 
         .choice-button {
             width: 220px;
             height: 130px;
+
             border: none;
             border-radius: 25px;
+
             background: white;
             color: #073b9c;
+
             font-size: 25px;
             font-weight: bold;
+
             cursor: pointer;
+
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
             transition: 0.2s;
         }
 
@@ -114,14 +127,20 @@
         /* PAGE 3 - GIFT */
         .page3 {
             display: none;
+
             width: 100vw;
             height: 100vh;
+
             background: linear-gradient(135deg, #073b9c, #1765c5);
+
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
             color: white;
             text-align: center;
+
+            padding: 20px;
         }
 
         .page3 h1 {
@@ -137,33 +156,90 @@
         .open-gift-button {
             width: 180px;
             height: 58px;
+
             border: none;
             border-radius: 30px;
+
             background: white;
             color: #073b9c;
+
             font-size: 22px;
             font-weight: bold;
+
             cursor: pointer;
+
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
             transition: 0.2s;
         }
 
         .open-gift-button:hover {
             transform: scale(1.08);
-        }.
-        gift-message {
-    display: none;
-    margin-top: 30px;
-}
+        }
 
-.gift-message h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
+        /* GIFT MESSAGE */
+        .gift-message {
+            display: none;
+            margin-top: 30px;
+        }
 
-.gift-message p {
-    font-size: 22px;
-}
+        .gift-message h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .gift-message p {
+            font-size: 22px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            .page2 h1 {
+                font-size: 28px;
+                margin-bottom: 35px;
+            }
+
+            .choices {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .choice-button {
+                width: min(220px, 80vw);
+                height: 110px;
+                font-size: 23px;
+            }
+
+            .page3 h1 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .gift-box {
+                font-size: 90px;
+                margin-bottom: 25px;
+            }
+
+            .open-gift-button {
+                width: 170px;
+                height: 55px;
+                font-size: 20px;
+            }
+
+            .gift-message {
+                width: 90%;
+            }
+
+            .gift-message h2 {
+                font-size: 24px;
+            }
+
+            .gift-message p {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -171,10 +247,13 @@
 
     <!-- PAGE 1 -->
     <div class="page">
+
         <button class="start-button" onclick="startWebsite()">
             Start →
         </button>
+
     </div>
+
 
     <!-- PAGE 2 -->
     <div class="page2" id="page2">
@@ -197,38 +276,66 @@
 
     </div>
 
+
     <!-- PAGE 3 - GIFT -->
     <div class="page3" id="page3">
 
         <h1>🎁 Ek chhota sa gift hai...</h1>
 
         <div class="gift-box" id="giftBox">
-    🎁
-</div>
+            🎁
+        </div>
 
-<button class="open-gift-button" id="openGiftButton" onclick="revealGift()">
-    Open 🎁
-</button>
-<div class="gift-message" id="giftMessage">
-    <h2>Tension mat le, iPhone nahi hai 💀</h2>
-    <p>Budget dekha toh gift khud hi bhaag gaya.</p>
-</div>
+        <button
+            class="open-gift-button"
+            id="openGiftButton"
+            onclick="revealGift()">
+            Open 🎁
+        </button>
+
+        <div class="gift-message" id="giftMessage">
+
+            <h2>Tension mat le, iPhone nahi hai 💀</h2>
+
+            <p>
+                Budget dekha toh gift khud hi bhaag gaya.
+            </p>
+
+        </div>
+
+    </div>
+
 
     <script>
+
         function startWebsite() {
+
             document.querySelector(".page").style.display = "none";
+
             document.getElementById("page2").style.display = "flex";
+
         }
 
+
         function openGift() {
+
             document.getElementById("page2").style.display = "none";
+
             document.getElementById("page3").style.display = "flex";
+
         }
+
+
         function revealGift() {
-    document.getElementById("giftBox").style.display = "none";
-    document.getElementById("openGiftButton").style.display = "none";
-    document.getElementById("giftMessage").style.display = "block";
-}
+
+            document.getElementById("giftBox").style.display = "none";
+
+            document.getElementById("openGiftButton").style.display = "none";
+
+            document.getElementById("giftMessage").style.display = "block";
+
+        }
+
     </script>
 
 </body>
