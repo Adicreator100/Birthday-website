@@ -23,10 +23,25 @@
             font-family: Arial, sans-serif;
         }
 
-        /* PAGE 1 */
-        .page {
+        /* =========================
+           COMMON PAGE
+        ========================= */
+
+        .page,
+        .page2,
+        .page3,
+        .games-page,
+        .truth-dare-page,
+        .would-you-rather-page {
             width: 100vw;
             height: 100vh;
+        }
+
+        /* =========================
+           PAGE 1
+        ========================= */
+
+        .page {
             background-image: url("page1.png");
             background-size: 100% 100%;
             background-position: center;
@@ -70,11 +85,13 @@
             transform: translateX(-50%) scale(0.96);
         }
 
-        /* PAGE 2 */
+
+        /* =========================
+           PAGE 2
+        ========================= */
+
         .page2 {
             display: none;
-            width: 100vw;
-            height: 100vh;
 
             background: linear-gradient(135deg, #073b9c, #1765c5);
 
@@ -96,6 +113,7 @@
         .choices {
             display: flex;
             gap: 40px;
+
             justify-content: center;
             align-items: center;
         }
@@ -124,12 +142,13 @@
             transform: scale(1.08);
         }
 
-        /* PAGE 3 - GIFT */
+
+        /* =========================
+           PAGE 3 - GIFT
+        ========================= */
+
         .page3 {
             display: none;
-
-            width: 100vw;
-            height: 100vh;
 
             background: linear-gradient(135deg, #073b9c, #1765c5);
 
@@ -177,7 +196,6 @@
             transform: scale(1.08);
         }
 
-        /* GIFT MESSAGE */
         .gift-message {
             display: none;
             margin-top: 30px;
@@ -192,24 +210,259 @@
             font-size: 22px;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           GAMES PAGE
+        ========================= */
+
+        .games-page {
+            display: none;
+
+            background: linear-gradient(135deg, #073b9c, #1765c5);
+
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            color: white;
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .games-page h1 {
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .game-buttons {
+            display: flex;
+            gap: 40px;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-button {
+            width: 240px;
+            height: 140px;
+
+            border: none;
+            border-radius: 25px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
+        .game-button:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           TRUTH OR DARE
+        ========================= */
+
+        .truth-dare-page {
+            display: none;
+
+            background: linear-gradient(135deg, #073b9c, #1765c5);
+
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            color: white;
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .truth-dare-page h1 {
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .truth-dare-buttons {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .truth-button,
+        .dare-button {
+            width: 180px;
+            height: 65px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 23px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
+        .truth-button:hover,
+        .dare-button:hover {
+            transform: scale(1.08);
+        }
+
+        .truth-dare-result {
+            display: none;
+
+            width: min(600px, 90vw);
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.15);
+
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           WOULD YOU RATHER
+        ========================= */
+
+        .would-you-rather-page {
+            display: none;
+
+            background: linear-gradient(135deg, #073b9c, #1765c5);
+
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            color: white;
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .would-you-rather-page h1 {
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .wyr-question {
+            width: min(650px, 90vw);
+
+            font-size: 25px;
+            line-height: 1.5;
+
+            margin-bottom: 35px;
+        }
+
+        .wyr-buttons {
+            display: flex;
+            gap: 25px;
+        }
+
+        .wyr-button {
+            width: 240px;
+            min-height: 70px;
+
+            border: none;
+            border-radius: 20px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 19px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            padding: 12px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
+        .wyr-button:hover {
+            transform: scale(1.06);
+        }
+
+        .wyr-result {
+            display: none;
+
+            margin-top: 30px;
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 600px) {
 
-            .page2 h1 {
+            .page2 h1,
+            .games-page h1,
+            .truth-dare-page h1,
+            .would-you-rather-page h1 {
                 font-size: 28px;
                 margin-bottom: 35px;
             }
 
-            .choices {
+            .choices,
+            .game-buttons,
+            .truth-dare-buttons,
+            .wyr-buttons {
                 flex-direction: column;
                 gap: 20px;
-                width: 100%;
             }
 
             .choice-button {
                 width: min(220px, 80vw);
                 height: 110px;
                 font-size: 23px;
+            }
+
+            .game-button {
+                width: min(260px, 85vw);
+                height: 115px;
+                font-size: 22px;
+            }
+
+            .truth-button,
+            .dare-button {
+                width: min(220px, 80vw);
+            }
+
+            .truth-dare-result {
+                font-size: 18px;
+            }
+
+            .wyr-question {
+                font-size: 20px;
+            }
+
+            .wyr-button {
+                width: min(300px, 85vw);
             }
 
             .page3 h1 {
@@ -220,12 +473,6 @@
             .gift-box {
                 font-size: 90px;
                 margin-bottom: 25px;
-            }
-
-            .open-gift-button {
-                width: 170px;
-                height: 55px;
-                font-size: 20px;
             }
 
             .gift-message {
@@ -243,9 +490,14 @@
     </style>
 </head>
 
+
 <body>
 
-    <!-- PAGE 1 -->
+
+    <!-- =========================
+         PAGE 1
+    ========================= -->
+
     <div class="page">
 
         <button class="start-button" onclick="startWebsite()">
@@ -255,7 +507,10 @@
     </div>
 
 
-    <!-- PAGE 2 -->
+    <!-- =========================
+         PAGE 2
+    ========================= -->
+
     <div class="page2" id="page2">
 
         <h1>Okay, ab tum decide karo 👀</h1>
@@ -267,9 +522,9 @@
                 Gift
             </button>
 
-            <button class="choice-button">
+            <button class="choice-button" onclick="openGames()">
                 🎮<br>
-                Game
+                Games
             </button>
 
         </div>
@@ -277,7 +532,10 @@
     </div>
 
 
-    <!-- PAGE 3 - GIFT -->
+    <!-- =========================
+         PAGE 3 - GIFT
+    ========================= -->
+
     <div class="page3" id="page3">
 
         <h1>🎁 Ek chhota sa gift hai...</h1>
@@ -306,7 +564,93 @@
     </div>
 
 
+    <!-- =========================
+         GAMES PAGE
+    ========================= -->
+
+    <div class="games-page" id="gamesPage">
+
+        <h1>Okay, ab game khelte hain 😈</h1>
+
+        <div class="game-buttons">
+
+            <button class="game-button" onclick="openTruthDare()">
+                🔥<br>
+                Truth or Dare
+            </button>
+
+            <button class="game-button" onclick="openWYR()">
+                🤔<br>
+                Would You Rather
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TRUTH OR DARE PAGE
+    ========================= -->
+
+    <div class="truth-dare-page" id="truthDarePage">
+
+        <h1>🔥 Truth or Dare?</h1>
+
+        <div class="truth-dare-buttons">
+
+            <button class="truth-button" onclick="showTruth()">
+                TRUTH
+            </button>
+
+            <button class="dare-button" onclick="showDare()">
+                DARE
+            </button>
+
+        </div>
+
+        <div class="truth-dare-result" id="truthDareResult"></div>
+
+    </div>
+
+
+    <!-- =========================
+         WOULD YOU RATHER PAGE
+    ========================= -->
+
+    <div class="would-you-rather-page" id="wyrPage">
+
+        <h1>🤔 Would You Rather?</h1>
+
+        <div class="wyr-question">
+            Would you rather have unlimited money<br>
+            or unlimited free time?
+        </div>
+
+        <div class="wyr-buttons">
+
+            <button class="wyr-button" onclick="wyrAnswer('Unlimited Money 💰')">
+                Unlimited Money 💰
+            </button>
+
+            <button class="wyr-button" onclick="wyrAnswer('Unlimited Free Time 😴')">
+                Unlimited Free Time 😴
+            </button>
+
+        </div>
+
+        <div class="wyr-result" id="wyrResult"></div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
+
+        /* START */
 
         function startWebsite() {
 
@@ -316,6 +660,8 @@
 
         }
 
+
+        /* GIFT */
 
         function openGift() {
 
@@ -333,6 +679,74 @@
             document.getElementById("openGiftButton").style.display = "none";
 
             document.getElementById("giftMessage").style.display = "block";
+
+        }
+
+
+        /* GAMES */
+
+        function openGames() {
+
+            document.getElementById("page2").style.display = "none";
+
+            document.getElementById("gamesPage").style.display = "flex";
+
+        }
+
+
+        /* TRUTH OR DARE */
+
+        function openTruthDare() {
+
+            document.getElementById("gamesPage").style.display = "none";
+
+            document.getElementById("truthDarePage").style.display = "flex";
+
+        }
+
+
+        function showTruth() {
+
+            const result = document.getElementById("truthDareResult");
+
+            result.style.display = "block";
+
+            result.innerHTML =
+                "👀 Truth: What is one memory from us that you will never forget?";
+
+        }
+
+
+        function showDare() {
+
+            const result = document.getElementById("truthDareResult");
+
+            result.style.display = "block";
+
+            result.innerHTML =
+                "😈 Dare: Send your funniest selfie right now.";
+
+        }
+
+
+        /* WOULD YOU RATHER */
+
+        function openWYR() {
+
+            document.getElementById("gamesPage").style.display = "none";
+
+            document.getElementById("wyrPage").style.display = "flex";
+
+        }
+
+
+        function wyrAnswer(answer) {
+
+            const result = document.getElementById("wyrResult");
+
+            result.style.display = "block";
+
+            result.innerHTML = "😂 You chose: " + answer;
 
         }
 
