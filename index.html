@@ -6,56 +6,64 @@
     <title>For Isha & Sneha</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
             overflow: hidden;
         }
 
         body {
-            background: #073b9c;
             font-family: Arial, sans-serif;
+            background: #073b9c;
         }
 
-        /* =========================
-           COMMON
-        ========================= */
+
+        /* =====================================
+           COMMON PAGE
+        ===================================== */
 
         .page,
         .page2,
         .page3,
         .games-page,
         .truth-dare-page,
-        .would-you-rather-page {
+        .would-you-rather-page,
+        .wish-page {
             width: 100vw;
             height: 100vh;
+            position: relative;
         }
 
-        /* =========================
+
+        /* =====================================
            PAGE 1
-        ========================= */
+        ===================================== */
 
         .page {
-            background-image: url("page1.png");
-            background-size: 100% 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-
             display: flex;
             justify-content: center;
             align-items: center;
+
+            background-image: url("page1.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .start-button {
             position: absolute;
-            bottom: 10.5%;
+
             left: 50%;
+            bottom: 10%;
+
             transform: translateX(-50%);
 
             width: 180px;
@@ -86,14 +94,24 @@
         }
 
 
-        /* =========================
-           PAGE 2
-        ========================= */
+        /* =====================================
+           COMMON BLUE PAGES
+        ===================================== */
 
-        .page2 {
+        .page2,
+        .page3,
+        .games-page,
+        .truth-dare-page,
+        .would-you-rather-page,
+        .wish-page {
+
             display: none;
 
-            background: linear-gradient(135deg, #073b9c, #1765c5);
+            background: linear-gradient(
+                135deg,
+                #073b9c,
+                #1765c5
+            );
 
             justify-content: center;
             align-items: center;
@@ -102,8 +120,13 @@
             color: white;
             text-align: center;
 
-            padding: 20px;
+            padding: 25px;
         }
+
+
+        /* =====================================
+           PAGE 2
+        ===================================== */
 
         .page2 h1 {
             font-size: 42px;
@@ -112,172 +135,16 @@
 
         .choices {
             display: flex;
-            gap: 40px;
+            gap: 30px;
 
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .choice-button {
-            width: 220px;
-            height: 130px;
-
-            border: none;
-            border-radius: 25px;
-
-            background: white;
-            color: #073b9c;
-
-            font-size: 25px;
-            font-weight: bold;
-
-            cursor: pointer;
-
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
-            transition: 0.2s;
-        }
-
-        .choice-button:hover {
-            transform: scale(1.08);
-        }
-
-
-        /* =========================
-           BACK BUTTON
-        ========================= */
-
-        .back-button {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-
-            border: none;
-            border-radius: 25px;
-
-            padding: 12px 20px;
-
-            background: rgba(255,255,255,0.95);
-            color: #073b9c;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            cursor: pointer;
-
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
-            transition: 0.2s;
-        }
-
-        .back-button:hover {
-            transform: scale(1.05);
-        }
-
-
-        /* =========================
-           PAGE 3 - GIFT
-        ========================= */
-
-        .page3 {
-            display: none;
-
-            background: linear-gradient(135deg, #073b9c, #1765c5);
-
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            color: white;
-            text-align: center;
-
-            padding: 20px;
-        }
-
-        .page3 h1 {
-            font-size: 42px;
-            margin-bottom: 40px;
-        }
-
-        .gift-box {
-            font-size: 120px;
-            margin-bottom: 30px;
-        }
-
-        .open-gift-button {
-            width: 180px;
-            height: 58px;
-
-            border: none;
-            border-radius: 30px;
-
-            background: white;
-            color: #073b9c;
-
-            font-size: 22px;
-            font-weight: bold;
-
-            cursor: pointer;
-
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
-            transition: 0.2s;
-        }
-
-        .open-gift-button:hover {
-            transform: scale(1.08);
-        }
-
-        .gift-message {
-            display: none;
-            margin-top: 30px;
-        }
-
-        .gift-message h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .gift-message p {
-            font-size: 22px;
-        }
-
-
-        /* =========================
-           GAMES PAGE
-        ========================= */
-
-        .games-page {
-            display: none;
-
-            background: linear-gradient(135deg, #073b9c, #1765c5);
-
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            color: white;
-            text-align: center;
-
-            padding: 20px;
-        }
-
-        .games-page h1 {
-            font-size: 42px;
-            margin-bottom: 50px;
-        }
-
-        .game-buttons {
-            display: flex;
-            gap: 40px;
-
-            justify-content: center;
-            align-items: center;
-        }
-
-        .game-button {
-            width: 240px;
-            height: 140px;
+            width: 200px;
+            height: 125px;
 
             border: none;
             border-radius: 25px;
@@ -295,48 +162,132 @@
             transition: 0.2s;
         }
 
-        .game-button:hover {
-            transform: scale(1.08);
+        .choice-button:hover {
+            transform: scale(1.07);
         }
 
 
-        /* =========================
-           TRUTH OR DARE
-        ========================= */
+        /* =====================================
+           BACK BUTTON
+        ===================================== */
 
-        .truth-dare-page {
-            display: none;
+        .back-button {
+            position: absolute;
 
-            background: linear-gradient(135deg, #073b9c, #1765c5);
+            top: 22px;
+            left: 22px;
 
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            border: none;
+            border-radius: 25px;
 
-            color: white;
-            text-align: center;
+            padding: 11px 18px;
 
-            padding: 20px;
+            background: white;
+            color: #073b9c;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+
+            z-index: 20;
+
+            transition: 0.2s;
         }
 
-        .truth-dare-page h1 {
+        .back-button:hover {
+            transform: scale(1.06);
+        }
+
+
+        /* =====================================
+           GIFT
+        ===================================== */
+
+        .page3 h1 {
             font-size: 42px;
-            margin-bottom: 40px;
-        }
-
-        .truth-dare-buttons {
-            display: flex;
-            gap: 30px;
             margin-bottom: 35px;
         }
 
-        .truth-button,
-        .dare-button {
+        .gift-box {
+            font-size: 120px;
+            margin-bottom: 25px;
+        }
+
+        .open-gift-button {
             width: 180px;
-            height: 65px;
+            height: 58px;
 
             border: none;
             border-radius: 30px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 21px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
+        .open-gift-button:hover {
+            transform: scale(1.08);
+        }
+
+        .gift-message {
+            display: none;
+
+            width: min(650px, 90vw);
+
+            margin-top: 25px;
+        }
+
+        .gift-message h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .gift-message p {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        .gift-disclaimer {
+            font-size: 14px;
+            opacity: 0.75;
+            margin-top: 25px;
+        }
+
+
+        /* =====================================
+           GAMES
+        ===================================== */
+
+        .games-page h1 {
+            font-size: 42px;
+            margin-bottom: 45px;
+        }
+
+        .game-buttons {
+            display: flex;
+            gap: 30px;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-button {
+            width: 230px;
+            height: 135px;
+
+            border: none;
+            border-radius: 25px;
 
             background: white;
             color: #073b9c;
@@ -351,15 +302,56 @@
             transition: 0.2s;
         }
 
+        .game-button:hover {
+            transform: scale(1.07);
+        }
+
+
+        /* =====================================
+           TRUTH OR DARE
+        ===================================== */
+
+        .truth-dare-page h1 {
+            font-size: 42px;
+            margin-bottom: 35px;
+        }
+
+        .truth-dare-buttons {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .truth-button,
+        .dare-button {
+            width: 180px;
+            height: 62px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 22px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
         .truth-button:hover,
         .dare-button:hover {
-            transform: scale(1.08);
+            transform: scale(1.07);
         }
 
         .truth-dare-result {
             display: none;
 
-            width: min(600px, 90vw);
+            width: min(650px, 90vw);
 
             padding: 25px;
 
@@ -371,33 +363,27 @@
             line-height: 1.5;
         }
 
-
-        /* =========================
-           WOULD YOU RATHER
-        ========================= */
-
-        .would-you-rather-page {
+        .birthday-line {
             display: none;
 
-            background: linear-gradient(135deg, #073b9c, #1765c5);
+            margin-top: 20px;
 
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            color: white;
-            text-align: center;
-
-            padding: 20px;
+            font-size: 17px;
+            opacity: 0.9;
         }
+
+
+        /* =====================================
+           WOULD YOU RATHER
+        ===================================== */
 
         .would-you-rather-page h1 {
             font-size: 42px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .wyr-question {
-            width: min(650px, 90vw);
+            width: min(700px, 90vw);
 
             font-size: 25px;
             line-height: 1.5;
@@ -408,6 +394,9 @@
         .wyr-buttons {
             display: flex;
             gap: 25px;
+
+            justify-content: center;
+            align-items: center;
         }
 
         .wyr-button {
@@ -420,7 +409,7 @@
             background: white;
             color: #073b9c;
 
-            font-size: 19px;
+            font-size: 18px;
             font-weight: bold;
 
             cursor: pointer;
@@ -439,40 +428,156 @@
         .wyr-result {
             display: none;
 
-            margin-top: 30px;
+            margin-top: 25px;
 
-            font-size: 22px;
+            font-size: 21px;
             font-weight: bold;
         }
 
 
-        /* =========================
-           WEBSITE JOKE
-        ========================= */
+        /* =====================================
+           WISH
+        ===================================== */
 
-        .website-joke {
-            position: absolute;
-            bottom: 25px;
+        .wish-page h1 {
+            font-size: 42px;
+            margin-bottom: 35px;
+        }
 
-            width: 90%;
+        .wish-question {
+            font-size: 27px;
+            margin-bottom: 30px;
+        }
 
-            font-size: 16px;
-            opacity: 0.85;
+        .wish-button {
+            width: 210px;
+            height: 62px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
+        .wish-button:hover {
+            transform: scale(1.07);
+        }
+
+        .wish-result {
+            display: none;
+
+            width: min(650px, 90vw);
+
+            margin-top: 30px;
+
+            font-size: 22px;
+            line-height: 1.6;
+        }
+
+        .wish-error {
+            margin-top: 12px;
+
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .wish-sweet {
+            margin-top: 25px;
+
+            font-size: 18px;
+            opacity: 0.95;
         }
 
 
-        /* =========================
+        /* =====================================
+           EASTER EGG
+        ===================================== */
+
+        .easter-egg-button {
+            position: absolute;
+
+            bottom: 22px;
+            right: 22px;
+
+            border: none;
+            background: transparent;
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+            z-index: 10;
+        }
+
+        .easter-egg-button:hover {
+            color: white;
+        }
+
+        .easter-result {
+            display: none;
+
+            position: absolute;
+
+            bottom: 60px;
+            right: 22px;
+
+            width: min(300px, 80vw);
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            background: white;
+            color: #073b9c;
+
+            font-size: 16px;
+            line-height: 1.5;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            z-index: 15;
+        }
+
+
+        /* =====================================
            MOBILE
-        ========================= */
+        ===================================== */
 
         @media (max-width: 600px) {
+
+            .page {
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .start-button {
+                width: 160px;
+                height: 54px;
+
+                bottom: 8%;
+
+                font-size: 20px;
+            }
 
             .page2 h1,
             .games-page h1,
             .truth-dare-page h1,
-            .would-you-rather-page h1 {
+            .would-you-rather-page h1,
+            .wish-page h1 {
                 font-size: 28px;
-                margin-bottom: 35px;
+                margin-bottom: 30px;
             }
 
             .choices,
@@ -480,50 +585,36 @@
             .truth-dare-buttons,
             .wyr-buttons {
                 flex-direction: column;
-                gap: 20px;
+                gap: 18px;
             }
 
             .choice-button {
-                width: min(220px, 80vw);
-                height: 110px;
-                font-size: 23px;
+                width: min(230px, 80vw);
+                height: 100px;
+                font-size: 21px;
             }
 
             .game-button {
-                width: min(260px, 85vw);
-                height: 115px;
-                font-size: 22px;
+                width: min(260px, 82vw);
+                height: 105px;
+                font-size: 21px;
             }
 
-            .truth-button,
-            .dare-button {
-                width: min(220px, 80vw);
-            }
+            .back-button {
+                top: 14px;
+                left: 14px;
 
-            .truth-dare-result {
-                font-size: 18px;
-            }
+                padding: 9px 15px;
 
-            .wyr-question {
-                font-size: 20px;
-            }
-
-            .wyr-button {
-                width: min(300px, 85vw);
+                font-size: 14px;
             }
 
             .page3 h1 {
                 font-size: 28px;
-                margin-bottom: 30px;
             }
 
             .gift-box {
-                font-size: 90px;
-                margin-bottom: 25px;
-            }
-
-            .gift-message {
-                width: 90%;
+                font-size: 85px;
             }
 
             .gift-message h2 {
@@ -534,17 +625,55 @@
                 font-size: 18px;
             }
 
-            .website-joke {
-                font-size: 14px;
+            .truth-button,
+            .dare-button {
+                width: min(220px, 80vw);
             }
 
-            .back-button {
-                top: 15px;
-                left: 15px;
-                padding: 10px 16px;
-                font-size: 14px;
+            .truth-dare-result {
+                font-size: 18px;
+                padding: 20px;
+            }
+
+            .birthday-line {
+                font-size: 15px;
+            }
+
+            .wyr-question {
+                font-size: 20px;
+            }
+
+            .wyr-button {
+                width: min(300px, 85vw);
+            }
+
+            .wish-question {
+                font-size: 22px;
+            }
+
+            .wish-result {
+                font-size: 19px;
+            }
+
+            .wish-error {
+                font-size: 21px;
+            }
+
+            .wish-sweet {
+                font-size: 16px;
+            }
+
+            .easter-egg-button {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .easter-result {
+                right: 15px;
+                bottom: 50px;
             }
         }
+
     </style>
 </head>
 
@@ -552,11 +681,11 @@
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================
          PAGE 1
-    ========================= -->
+    ===================================== -->
 
-    <div class="page">
+    <div class="page" id="page1">
 
         <button class="start-button" onclick="startWebsite()">
             Start →
@@ -565,9 +694,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================
          PAGE 2
-    ========================= -->
+    ===================================== -->
 
     <div class="page2" id="page2">
 
@@ -585,14 +714,19 @@
                 Games
             </button>
 
+            <button class="choice-button" onclick="openWish()">
+                💌<br>
+                Wish
+            </button>
+
         </div>
 
     </div>
 
 
-    <!-- =========================
-         PAGE 3 - GIFT
-    ========================= -->
+    <!-- =====================================
+         GIFT
+    ===================================== -->
 
     <div class="page3" id="page3">
 
@@ -615,10 +749,16 @@
 
         <div class="gift-message" id="giftMessage">
 
-            <h2>Tension mat le, iPhone nahi hai 💀</h2>
+            <h2>
+                Gift toh invisible hai...
+            </h2>
 
             <p>
-                Budget dekha toh gift khud hi bhaag gaya.
+                kyunki asli gift toh tumhara smile hai. 😊
+            </p>
+
+            <p class="gift-disclaimer">
+                Disclaimer: Ye maine nahi likha hai 😭
             </p>
 
         </div>
@@ -626,9 +766,9 @@
     </div>
 
 
-    <!-- =========================
-         GAMES PAGE
-    ========================= -->
+    <!-- =====================================
+         GAMES
+    ===================================== -->
 
     <div class="games-page" id="gamesPage">
 
@@ -652,16 +792,42 @@
 
         </div>
 
-        <div class="website-joke">
-            Ab bas tum unblock kar dena 😭
+
+        <!-- EASTER EGG -->
+
+        <button
+            class="easter-egg-button"
+            onclick="showEasterEgg()">
+            Don't click this.
+        </button>
+
+        <div class="easter-result" id="easterResult">
+
+            Maine bola tha mat click karna. 😭
+
+            <br><br>
+
+            <button
+                onclick="finishEasterEgg()"
+                style="
+                    border:none;
+                    border-radius:15px;
+                    padding:8px 15px;
+                    background:#073b9c;
+                    color:white;
+                    cursor:pointer;
+                ">
+                Okay sorry
+            </button>
+
         </div>
 
     </div>
 
 
-    <!-- =========================
-         TRUTH OR DARE PAGE
-    ========================= -->
+    <!-- =====================================
+         TRUTH OR DARE
+    ===================================== -->
 
     <div class="truth-dare-page" id="truthDarePage">
 
@@ -673,26 +839,43 @@
 
         <div class="truth-dare-buttons">
 
-            <button class="truth-button" onclick="showTruth()">
+            <button
+                class="truth-button"
+                onclick="showTruth()">
                 TRUTH
             </button>
 
-            <button class="dare-button" onclick="showDare()">
+            <button
+                class="dare-button"
+                onclick="showDare()">
                 DARE
             </button>
 
         </div>
 
-        <div class="truth-dare-result" id="truthDareResult"></div>
+        <div
+            class="truth-dare-result"
+            id="truthDareResult">
+        </div>
+
+        <div
+            class="birthday-line"
+            id="birthdayLine">
+
+            Aaj toh birthday hai... aaj toh maaf kar do 🥲😂
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         WOULD YOU RATHER PAGE
-    ========================= -->
+    <!-- =====================================
+         WOULD YOU RATHER
+    ===================================== -->
 
-    <div class="would-you-rather-page" id="wyrPage">
+    <div
+        class="would-you-rather-page"
+        id="wyrPage">
 
         <button class="back-button" onclick="backToGames()">
             ← Back
@@ -701,45 +884,109 @@
         <h1>🤔 Would You Rather?</h1>
 
         <div class="wyr-question">
-            Would you rather have unlimited money<br>
-            or unlimited free time?
+
+            Would you rather have unlimited money 💰
+            <br>
+            or unlimited free time 😴?
+
         </div>
 
         <div class="wyr-buttons">
 
-            <button class="wyr-button" onclick="wyrAnswer('Unlimited Money 💰')">
+            <button
+                class="wyr-button"
+                onclick="wyrAnswer('Unlimited Money 💰')">
+
                 Unlimited Money 💰
+
             </button>
 
-            <button class="wyr-button" onclick="wyrAnswer('Unlimited Free Time 😴')">
+            <button
+                class="wyr-button"
+                onclick="wyrAnswer('Unlimited Free Time 😴')">
+
                 Unlimited Free Time 😴
+
             </button>
 
         </div>
 
-        <div class="wyr-result" id="wyrResult"></div>
+        <div
+            class="wyr-result"
+            id="wyrResult">
+        </div>
 
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================
+         WISH
+    ===================================== -->
+
+    <div class="wish-page" id="wishPage">
+
+        <button class="back-button" onclick="backToChoices()">
+            ← Back
+        </button>
+
+        <h1>💌 Wish</h1>
+
+        <div class="wish-question">
+            Ek wish maango 👀
+        </div>
+
+        <button
+            class="wish-button"
+            onclick="makeWish()">
+
+            ✨ Wish maang li
+
+        </button>
+
+        <div
+            class="wish-result"
+            id="wishResult">
+
+            <div>
+                Wish noted. Processing... ⏳
+            </div>
+
+            <div class="wish-error">
+                Error 404: Itni achhi wish ka arrangement nahi hua. 💀
+            </div>
+
+            <div class="wish-sweet">
+                Waise mazaak alag, hope teri wish sach mein poori ho. :)
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
          JAVASCRIPT
-    ========================= -->
+    ===================================== -->
 
     <script>
 
-        /* START */
+
+        /* =====================================
+           START
+        ===================================== */
 
         function startWebsite() {
 
-            document.querySelector(".page").style.display = "none";
+            document.getElementById("page1").style.display = "none";
 
             document.getElementById("page2").style.display = "flex";
 
         }
 
 
-        /* GIFT */
+        /* =====================================
+           GIFT
+        ===================================== */
 
         function openGift() {
 
@@ -761,7 +1008,9 @@
         }
 
 
-        /* GAMES */
+        /* =====================================
+           GAMES
+        ===================================== */
 
         function openGames() {
 
@@ -772,20 +1021,9 @@
         }
 
 
-        /* BACK TO CHOICES */
-
-        function backToChoices() {
-
-            document.getElementById("page3").style.display = "none";
-
-            document.getElementById("gamesPage").style.display = "none";
-
-            document.getElementById("page2").style.display = "flex";
-
-        }
-
-
-        /* TRUTH OR DARE */
+        /* =====================================
+           TRUTH OR DARE
+        ===================================== */
 
         function openTruthDare() {
 
@@ -798,9 +1036,15 @@
 
         function showTruth() {
 
-            const result = document.getElementById("truthDareResult");
+            const result =
+                document.getElementById("truthDareResult");
+
+            const birthday =
+                document.getElementById("birthdayLine");
 
             result.style.display = "block";
+
+            birthday.style.display = "none";
 
             result.innerHTML =
                 "👀 Ye choose nahi kar sakti, Dare choose karo 😭";
@@ -810,9 +1054,15 @@
 
         function showDare() {
 
-            const result = document.getElementById("truthDareResult");
+            const result =
+                document.getElementById("truthDareResult");
+
+            const birthday =
+                document.getElementById("birthdayLine");
 
             result.style.display = "block";
+
+            birthday.style.display = "block";
 
             result.innerHTML =
                 "😈 Please unblock kardo 🥲";
@@ -820,7 +1070,9 @@
         }
 
 
-        /* WOULD YOU RATHER */
+        /* =====================================
+           WOULD YOU RATHER
+        ===================================== */
 
         function openWYR() {
 
@@ -833,7 +1085,8 @@
 
         function wyrAnswer(answer) {
 
-            const result = document.getElementById("wyrResult");
+            const result =
+                document.getElementById("wyrResult");
 
             result.style.display = "block";
 
@@ -843,7 +1096,46 @@
         }
 
 
-        /* BACK TO GAMES */
+        /* =====================================
+           WISH
+        ===================================== */
+
+        function openWish() {
+
+            document.getElementById("page2").style.display = "none";
+
+            document.getElementById("wishPage").style.display = "flex";
+
+        }
+
+
+        function makeWish() {
+
+            document.getElementById("wishResult").style.display = "block";
+
+        }
+
+
+        /* =====================================
+           BACK TO CHOICES
+        ===================================== */
+
+        function backToChoices() {
+
+            document.getElementById("page3").style.display = "none";
+
+            document.getElementById("gamesPage").style.display = "none";
+
+            document.getElementById("wishPage").style.display = "none";
+
+            document.getElementById("page2").style.display = "flex";
+
+        }
+
+
+        /* =====================================
+           BACK TO GAMES
+        ===================================== */
 
         function backToGames() {
 
@@ -854,6 +1146,26 @@
             document.getElementById("gamesPage").style.display = "flex";
 
         }
+
+
+        /* =====================================
+           EASTER EGG
+        ===================================== */
+
+        function showEasterEgg() {
+
+            document.getElementById("easterResult").style.display = "block";
+
+        }
+
+
+        function finishEasterEgg() {
+
+            document.getElementById("easterResult").innerHTML =
+                "Good. Ab aage jao. 😂";
+
+        }
+
 
     </script>
 
