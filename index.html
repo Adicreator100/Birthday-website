@@ -415,6 +415,21 @@
 
 
         /* =========================
+           WEBSITE JOKE
+        ========================= */
+
+        .website-joke {
+            position: absolute;
+            bottom: 25px;
+
+            width: 90%;
+
+            font-size: 16px;
+            opacity: 0.85;
+        }
+
+
+        /* =========================
            MOBILE
         ========================= */
 
@@ -486,6 +501,10 @@
             .gift-message p {
                 font-size: 18px;
             }
+
+            .website-joke {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -494,9 +513,7 @@
 <body>
 
 
-    <!-- =========================
-         PAGE 1
-    ========================= -->
+    <!-- PAGE 1 -->
 
     <div class="page">
 
@@ -507,9 +524,7 @@
     </div>
 
 
-    <!-- =========================
-         PAGE 2
-    ========================= -->
+    <!-- PAGE 2 -->
 
     <div class="page2" id="page2">
 
@@ -532,9 +547,7 @@
     </div>
 
 
-    <!-- =========================
-         PAGE 3 - GIFT
-    ========================= -->
+    <!-- PAGE 3 - GIFT -->
 
     <div class="page3" id="page3">
 
@@ -564,9 +577,7 @@
     </div>
 
 
-    <!-- =========================
-         GAMES PAGE
-    ========================= -->
+    <!-- GAMES PAGE -->
 
     <div class="games-page" id="gamesPage">
 
@@ -586,12 +597,14 @@
 
         </div>
 
+        <div class="website-joke">
+            Ab bas tum unblock kar dena 😭
+        </div>
+
     </div>
 
 
-    <!-- =========================
-         TRUTH OR DARE PAGE
-    ========================= -->
+    <!-- TRUTH OR DARE PAGE -->
 
     <div class="truth-dare-page" id="truthDarePage">
 
@@ -614,9 +627,7 @@
     </div>
 
 
-    <!-- =========================
-         WOULD YOU RATHER PAGE
-    ========================= -->
+    <!-- WOULD YOU RATHER PAGE -->
 
     <div class="would-you-rather-page" id="wyrPage">
 
@@ -644,13 +655,9 @@
     </div>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
+    <!-- JAVASCRIPT -->
 
     <script>
-
-        /* START */
 
         function startWebsite() {
 
@@ -712,7 +719,7 @@
             result.style.display = "block";
 
             result.innerHTML =
-                "👀 Truth: What is one memory from us that you will never forget?";
+                "👀 Ye choose nahi kar sakti, Dare choose karo 😭";
 
         }
 
@@ -724,7 +731,7 @@
             result.style.display = "block";
 
             result.innerHTML =
-                "😈 Dare: Send your funniest selfie right now.";
+                "😈 Please unblock kardo 🥲";
 
         }
 
@@ -746,7 +753,8 @@
 
             result.style.display = "block";
 
-            result.innerHTML = "😂 You chose: " + answer;
+            result.innerHTML =
+                "😂 You chose: " + answer;
 
         }
 
