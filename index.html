@@ -24,7 +24,7 @@
         }
 
         /* =========================
-           COMMON PAGE
+           COMMON
         ========================= */
 
         .page,
@@ -140,6 +140,38 @@
 
         .choice-button:hover {
             transform: scale(1.08);
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-button {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+
+            border: none;
+            border-radius: 25px;
+
+            padding: 12px 20px;
+
+            background: rgba(255,255,255,0.95);
+            color: #073b9c;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
         }
 
 
@@ -505,6 +537,13 @@
             .website-joke {
                 font-size: 14px;
             }
+
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -513,7 +552,9 @@
 <body>
 
 
-    <!-- PAGE 1 -->
+    <!-- =========================
+         PAGE 1
+    ========================= -->
 
     <div class="page">
 
@@ -524,7 +565,9 @@
     </div>
 
 
-    <!-- PAGE 2 -->
+    <!-- =========================
+         PAGE 2
+    ========================= -->
 
     <div class="page2" id="page2">
 
@@ -547,9 +590,15 @@
     </div>
 
 
-    <!-- PAGE 3 - GIFT -->
+    <!-- =========================
+         PAGE 3 - GIFT
+    ========================= -->
 
     <div class="page3" id="page3">
+
+        <button class="back-button" onclick="backToChoices()">
+            ← Back
+        </button>
 
         <h1>🎁 Ek chhota sa gift hai...</h1>
 
@@ -577,9 +626,15 @@
     </div>
 
 
-    <!-- GAMES PAGE -->
+    <!-- =========================
+         GAMES PAGE
+    ========================= -->
 
     <div class="games-page" id="gamesPage">
+
+        <button class="back-button" onclick="backToChoices()">
+            ← Back
+        </button>
 
         <h1>Okay, ab game khelte hain 😈</h1>
 
@@ -604,9 +659,15 @@
     </div>
 
 
-    <!-- TRUTH OR DARE PAGE -->
+    <!-- =========================
+         TRUTH OR DARE PAGE
+    ========================= -->
 
     <div class="truth-dare-page" id="truthDarePage">
+
+        <button class="back-button" onclick="backToGames()">
+            ← Back
+        </button>
 
         <h1>🔥 Truth or Dare?</h1>
 
@@ -627,9 +688,15 @@
     </div>
 
 
-    <!-- WOULD YOU RATHER PAGE -->
+    <!-- =========================
+         WOULD YOU RATHER PAGE
+    ========================= -->
 
     <div class="would-you-rather-page" id="wyrPage">
+
+        <button class="back-button" onclick="backToGames()">
+            ← Back
+        </button>
 
         <h1>🤔 Would You Rather?</h1>
 
@@ -655,9 +722,13 @@
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
     <script>
+
+        /* START */
 
         function startWebsite() {
 
@@ -697,6 +768,19 @@
             document.getElementById("page2").style.display = "none";
 
             document.getElementById("gamesPage").style.display = "flex";
+
+        }
+
+
+        /* BACK TO CHOICES */
+
+        function backToChoices() {
+
+            document.getElementById("page3").style.display = "none";
+
+            document.getElementById("gamesPage").style.display = "none";
+
+            document.getElementById("page2").style.display = "flex";
 
         }
 
@@ -755,6 +839,19 @@
 
             result.innerHTML =
                 "😂 You chose: " + answer;
+
+        }
+
+
+        /* BACK TO GAMES */
+
+        function backToGames() {
+
+            document.getElementById("truthDarePage").style.display = "none";
+
+            document.getElementById("wyrPage").style.display = "none";
+
+            document.getElementById("gamesPage").style.display = "flex";
 
         }
 
