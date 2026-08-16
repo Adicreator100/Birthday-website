@@ -202,14 +202,13 @@
 
         <h1>🎁 Ek chhota sa gift hai...</h1>
 
-        <div class="gift-box">
-            🎁
-        </div>
+        <div class="gift-box" id="giftBox">
+    🎁
+</div>
 
-       <button class="open-gift-button" onclick="revealGift()">
+<button class="open-gift-button" id="openGiftButton" onclick="revealGift()">
     Open 🎁
 </button>
-
 <div class="gift-message" id="giftMessage">
     <h2>Tension mat le, iPhone nahi hai 💀</h2>
     <p>Budget dekha toh gift khud hi bhaag gaya.</p>
@@ -226,8 +225,8 @@
             document.getElementById("page3").style.display = "flex";
         }
         function revealGift() {
-    document.querySelector(".gift-box").style.display = "none";
-    document.querySelector(".open-gift-button").style.display = "none";
+    document.getElementById("giftBox").style.display = "none";
+    document.getElementById("openGiftButton").style.display = "none";
     document.getElementById("giftMessage").style.display = "block";
 }
     </script>
