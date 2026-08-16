@@ -150,7 +150,20 @@
 
         .open-gift-button:hover {
             transform: scale(1.08);
-        }
+        }.
+        gift-message {
+    display: none;
+    margin-top: 30px;
+}
+
+.gift-message h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.gift-message p {
+    font-size: 22px;
+}
     </style>
 </head>
 
@@ -193,11 +206,14 @@
             🎁
         </div>
 
-        <button class="open-gift-button">
-            Open 🎁
-        </button>
+       <button class="open-gift-button" onclick="revealGift()">
+    Open 🎁
+</button>
 
-    </div>
+<div class="gift-message" id="giftMessage">
+    <h2>Tension mat le, iPhone nahi hai 💀</h2>
+    <p>Budget dekha toh gift khud hi bhaag gaya.</p>
+</div>
 
     <script>
         function startWebsite() {
@@ -209,6 +225,11 @@
             document.getElementById("page2").style.display = "none";
             document.getElementById("page3").style.display = "flex";
         }
+        function revealGift() {
+    document.querySelector(".gift-box").style.display = "none";
+    document.querySelector(".open-gift-button").style.display = "none";
+    document.getElementById("giftMessage").style.display = "block";
+}
     </script>
 
 </body>
