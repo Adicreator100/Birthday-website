@@ -1,28 +1,18 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For Isha & Sneha</title>
+<title>Happy Birthday Isha 🎂</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
@@ -30,1062 +20,804 @@ body{
 
 body{
     font-family:Arial, sans-serif;
-    background:#073b9c;
 }
 
-
-/* =====================================================
-   COMMON PAGE
-===================================================== */
-
-.page,
-.page2,
-.gift-page,
-.games-page,
-.truth-dare-page,
-.wyr-page,
-.final-wish-page{
-
-    width:100vw;
-    height:100vh;
-
-    position:relative;
-
-    display:none;
-
-    justify-content:center;
-    align-items:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    padding:25px;
-
-    color:white;
-}
-
-
-/* =====================================================
-   PAGE 1
-===================================================== */
+/* ==============================
+   COMMON
+============================== */
 
 .page{
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+    color:white;
+    overflow:hidden;
+}
 
+.page.active{
     display:flex;
+}
 
-    background-image:url("page1.png");
+/* ==============================
+   PAGE 1
+============================== */
 
-    background-size:cover;
+#page1{
+    background:
+        radial-gradient(circle at 20% 20%,#ffb6d9,transparent 25%),
+        radial-gradient(circle at 80% 80%,#ffd86b,transparent 25%),
+        linear-gradient(135deg,#6a11cb,#ff4b91);
+}
 
-    background-position:center;
+/* floating circles */
 
-    background-repeat:no-repeat;
+.bg-circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.16);
+    animation:floatCircle 7s infinite ease-in-out;
+}
+
+.c1{
+    width:100px;
+    height:100px;
+    left:8%;
+    top:15%;
+}
+
+.c2{
+    width:160px;
+    height:160px;
+    right:8%;
+    top:10%;
+    animation-delay:2s;
+}
+
+.c3{
+    width:80px;
+    height:80px;
+    left:20%;
+    bottom:10%;
+    animation-delay:4s;
+}
+
+.c4{
+    width:130px;
+    height:130px;
+    right:20%;
+    bottom:15%;
+    animation-delay:1s;
+}
+
+@keyframes floatCircle{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-30px) rotate(15deg);
+    }
+}
+
+.birthday-content{
+    position:relative;
+    z-index:5;
+    animation:page1Enter 1.2s ease;
+}
+
+@keyframes page1Enter{
+    from{
+        opacity:0;
+        transform:scale(.75) translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.birthday-small{
+    font-size:25px;
+    margin-bottom:15px;
+    animation:fadeDown 1s ease;
+}
+
+.birthday-title{
+    font-size:clamp(42px,8vw,78px);
+    font-weight:900;
+    line-height:1.05;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.5),
+        0 0 30px rgba(255,255,255,.3);
+    animation:titleGlow 2s infinite ease-in-out;
+}
+
+@keyframes titleGlow{
+    0%,100%{
+        transform:scale(1);
+        text-shadow:0 0 10px rgba(255,255,255,.5);
+    }
+    50%{
+        transform:scale(1.04);
+        text-shadow:
+            0 0 20px white,
+            0 0 45px rgba(255,255,255,.5);
+    }
+}
+
+.birthday-sub{
+    margin-top:20px;
+    font-size:19px;
+    opacity:.9;
+    animation:fadeUp 1.5s ease;
 }
 
 .start-button{
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:10%;
-
-    transform:translateX(-50%);
-
-    width:180px;
-    height:58px;
-
+    margin-top:45px;
+    padding:16px 42px;
     border:none;
-
-    border-radius:30px;
-
-    background:rgba(120,205,255,.95);
-
-    color:#073b9c;
-
-    font-size:22px;
-
+    border-radius:40px;
+    background:white;
+    color:#7b1fc9;
+    font-size:21px;
     font-weight:bold;
-
     cursor:pointer;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
-
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    animation:startPulse 2s infinite;
     transition:.25s;
 }
 
 .start-button:hover{
-
-    transform:translateX(-50%) scale(1.08);
+    transform:scale(1.08);
 }
 
+@keyframes startPulse{
+    0%,100%{
+        box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    50%{
+        box-shadow:
+            0 10px 35px rgba(255,255,255,.55),
+            0 0 20px rgba(255,255,255,.4);
+    }
+}
 
-/* =====================================================
+/* ==============================
+   PARTICLES
+============================== */
+
+.confetti{
+    position:absolute;
+    width:9px;
+    height:15px;
+    background:white;
+    opacity:.7;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-20px) rotate(0deg);
+    }
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+/* ==============================
    MAIN MENU
-===================================================== */
+============================== */
 
-.page2{
-
+#page2{
     background:
-    radial-gradient(circle at top left,#2878e8,transparent 35%),
-    linear-gradient(135deg,#073b9c,#1765c5);
+        radial-gradient(circle at 10% 20%,#4c8dff,transparent 25%),
+        radial-gradient(circle at 90% 80%,#5c32d6,transparent 25%),
+        linear-gradient(135deg,#073b9c,#1765c5);
 }
 
-.page2 h1{
-
-    font-size:42px;
-
-    margin-bottom:50px;
+#page2 h1{
+    font-size:clamp(28px,5vw,45px);
+    margin-bottom:45px;
+    animation:fadeDown .8s ease;
 }
 
 .choices{
-
     display:flex;
-
-    gap:30px;
-
-    justify-content:center;
-
-    align-items:center;
-
+    gap:25px;
     flex-wrap:wrap;
+    justify-content:center;
 }
 
 .choice-button{
-
-    width:200px;
-    height:125px;
-
+    width:210px;
+    height:135px;
     border:none;
-
-    border-radius:25px;
-
+    border-radius:28px;
     background:white;
-
     color:#073b9c;
-
-    font-size:24px;
-
+    font-size:23px;
     font-weight:bold;
-
     cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.3s;
+    animation:cardFloat 3s infinite ease-in-out;
+}
 
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+.choice-button:nth-child(2){
+    animation-delay:.4s;
+}
 
-    transition:.25s;
+.choice-button:nth-child(3){
+    animation-delay:.8s;
 }
 
 .choice-button:hover{
-
-    transform:translateY(-8px) scale(1.04);
+    transform:translateY(-12px) scale(1.05);
 }
 
-
-/* =====================================================
-   BACK BUTTON
-===================================================== */
-
-.back-button{
-
-    position:absolute;
-
-    top:22px;
-    left:22px;
-
-    border:none;
-
-    border-radius:25px;
-
-    padding:11px 18px;
-
-    background:white;
-
-    color:#073b9c;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.20);
-
-    z-index:50;
-}
-
-
-/* =====================================================
-   GIFT PAGE
-===================================================== */
-
-.gift-page{
-
-    background:
-
-    radial-gradient(circle at 50% 30%,
-        rgba(255,255,255,.35),
-        transparent 25%),
-
-    linear-gradient(
-        135deg,
-        #7b2ff7,
-        #f107a3
-    );
-
-    overflow:hidden;
-}
-
-
-/* floating lights */
-
-.gift-page::before,
-.gift-page::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:220px;
-    height:220px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.08);
-
-    animation:floatGlow 6s infinite ease-in-out;
-
-    z-index:0;
-}
-
-.gift-page::before{
-
-    top:-70px;
-    left:-70px;
-}
-
-.gift-page::after{
-
-    bottom:-80px;
-    right:-70px;
-
-    animation-delay:2s;
-}
-
-@keyframes floatGlow{
-
+@keyframes cardFloat{
     0%,100%{
         transform:translateY(0);
     }
-
     50%{
-        transform:translateY(25px);
+        transform:translateY(-7px);
     }
 }
 
-.gift-page > *{
+/* ==============================
+   NAVIGATION
+============================== */
 
-    position:relative;
-
-    z-index:2;
+.nav{
+    position:absolute;
+    top:18px;
+    left:18px;
+    z-index:100;
 }
 
-.gift-page h1{
+.back-button{
+    border:none;
+    border-radius:25px;
+    padding:11px 18px;
+    background:white;
+    color:#073b9c;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(0,0,0,.2);
+    transition:.2s;
+}
 
-    font-size:40px;
+.back-button:hover{
+    transform:scale(1.06);
+}
 
-    margin-bottom:25px;
+/* ==============================
+   GIFT
+============================== */
+
+#giftPage{
+    background:
+        radial-gradient(circle at 50% 20%,rgba(255,255,255,.25),transparent 25%),
+        linear-gradient(135deg,#7b2ff7,#f107a3);
+}
+
+.gift-title{
+    font-size:clamp(28px,5vw,42px);
+    margin-bottom:20px;
+    animation:fadeDown .8s ease;
 }
 
 .gift-box{
-
     font-size:120px;
-
     cursor:pointer;
-
-    animation:giftFloat 2s infinite ease-in-out;
-
-    margin-bottom:20px;
+    animation:giftBounce 1.8s infinite ease-in-out;
+    filter:drop-shadow(0 15px 15px rgba(0,0,0,.2));
 }
 
-@keyframes giftFloat{
-
+@keyframes giftBounce{
     0%,100%{
-        transform:translateY(0);
+        transform:translateY(0) rotate(-2deg);
     }
-
     50%{
-        transform:translateY(-12px);
+        transform:translateY(-18px) rotate(2deg);
     }
 }
 
 .gift-box.shake{
-
     animation:giftShake .6s;
 }
 
 @keyframes giftShake{
-
-    0%{
-        transform:rotate(0);
-    }
-
-    20%{
-        transform:rotate(-12deg);
-    }
-
-    40%{
-        transform:rotate(12deg);
-    }
-
-    60%{
-        transform:rotate(-10deg);
-    }
-
-    80%{
-        transform:rotate(8deg);
-    }
-
-    100%{
-        transform:rotate(0);
-    }
+    0%{transform:rotate(0);}
+    20%{transform:rotate(-15deg) scale(1.1);}
+    40%{transform:rotate(15deg) scale(1.1);}
+    60%{transform:rotate(-12deg);}
+    80%{transform:rotate(10deg);}
+    100%{transform:rotate(0);}
 }
 
-.open-gift-button{
-
-    width:180px;
-
-    height:58px;
-
+.open-gift-button,
+.second-gift-button,
+.final-button{
     border:none;
-
     border-radius:30px;
-
+    padding:15px 28px;
     background:white;
-
     color:#7b2ff7;
-
-    font-size:21px;
-
+    font-size:19px;
     font-weight:bold;
-
     cursor:pointer;
-
     box-shadow:0 8px 25px rgba(0,0,0,.25);
-
-    transition:.2s;
+    transition:.25s;
 }
 
-.open-gift-button:hover{
-
+.open-gift-button:hover,
+.second-gift-button:hover,
+.final-button:hover{
     transform:scale(1.08);
 }
 
 .gift-message{
-
     display:none;
-
     width:min(650px,90vw);
+    animation:giftReveal .9s ease;
+}
 
-    animation:fadeUp .8s ease;
+@keyframes giftReveal{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .gift-message h2{
-
     font-size:30px;
-
     margin-bottom:15px;
 }
 
 .gift-message p{
-
-    font-size:21px;
-
-    line-height:1.5;
-
-    margin-bottom:20px;
+    font-size:20px;
+    line-height:1.6;
 }
 
 .second-gift-button{
-
-    display:none;
-
-    margin-top:10px;
-
-    padding:12px 22px;
-
-    border:none;
-
-    border-radius:25px;
-
-    background:white;
-
-    color:#7b2ff7;
-
-    font-weight:bold;
-
-    cursor:pointer;
+    display:inline-block;
+    margin-top:20px;
 }
 
 .second-surprise{
-
     display:none;
-
     margin-top:25px;
-
     font-size:21px;
-
-    line-height:1.5;
-
+    line-height:1.6;
     animation:fadeUp .7s ease;
 }
 
+/* ==============================
+   GAMES
+============================== */
 
-/* =====================================================
-   GAMES PAGE
-===================================================== */
-
-.games-page{
-
+#gamesPage{
     background:
-
-    radial-gradient(circle at 20% 20%,
-        rgba(255,255,255,.12),
-        transparent 25%),
-
-    radial-gradient(circle at 80% 70%,
-        rgba(255,255,255,.10),
-        transparent 25%),
-
-    linear-gradient(
-        135deg,
-        #101020,
-        #34205f
-    );
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 25%),
+        radial-gradient(circle at 80% 80%,rgba(255,255,255,.1),transparent 25%),
+        linear-gradient(135deg,#101020,#34205f);
 }
 
-.games-page h1{
-
-    font-size:40px;
-
-    margin-bottom:45px;
+#gamesPage h1{
+    font-size:clamp(28px,5vw,42px);
+    margin-bottom:40px;
 }
 
 .game-buttons{
-
     display:flex;
-
-    gap:25px;
-
-    justify-content:center;
-
-    align-items:center;
-
+    gap:22px;
     flex-wrap:wrap;
+    justify-content:center;
 }
 
 .game-button{
-
     width:220px;
-
     height:130px;
-
     border:none;
-
     border-radius:25px;
-
     background:white;
-
     color:#34205f;
-
-    font-size:22px;
-
+    font-size:21px;
     font-weight:bold;
-
     cursor:pointer;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.3);
-
-    transition:.25s;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    transition:.3s;
 }
 
 .game-button:hover{
-
-    transform:translateY(-8px) scale(1.05);
+    transform:translateY(-10px) rotate(-1deg);
 }
 
+/* Easter egg */
 
-/* =====================================================
-   EASTER EGG
-===================================================== */
-
-.easter-egg-button{
-
+.easter-button{
     position:absolute;
-
-    bottom:20px;
-
-    right:20px;
-
-    border:none;
-
+    bottom:18px;
+    right:18px;
     background:transparent;
-
-    color:rgba(255,255,255,.45);
-
-    font-size:12px;
-
+    border:none;
+    color:rgba(255,255,255,.4);
     cursor:pointer;
 }
 
 .easter-result{
-
     display:none;
-
     position:absolute;
-
-    bottom:60px;
-
-    right:20px;
-
-    width:min(300px,80vw);
-
+    bottom:55px;
+    right:18px;
     padding:18px;
-
-    border-radius:15px;
-
+    border-radius:18px;
     background:white;
-
     color:#34205f;
-
-    font-size:16px;
-
-    line-height:1.5;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.3);
-
-    z-index:30;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    animation:pop .4s ease;
 }
 
-
-/* =====================================================
+/* ==============================
    TRUTH OR DARE
-===================================================== */
+============================== */
 
-.truth-dare-page{
-
+#truthDarePage{
     background:
-
-    radial-gradient(circle at 50% 20%,
-        rgba(255,100,100,.15),
-        transparent 30%),
-
-    linear-gradient(
-        135deg,
-        #180b0b,
-        #5b1010
-    );
+        radial-gradient(circle at 50% 20%,rgba(255,100,100,.2),transparent 30%),
+        linear-gradient(135deg,#180b0b,#5b1010);
 }
 
-.truth-dare-page h1{
-
-    font-size:40px;
-
-    margin-bottom:35px;
-}
-
-.truth-dare-buttons{
-
-    display:flex;
-
-    gap:25px;
-
+.game-title{
+    font-size:clamp(28px,5vw,42px);
     margin-bottom:30px;
+}
+
+.truth-buttons{
+    display:flex;
+    gap:22px;
 }
 
 .truth-button,
 .dare-button{
-
     width:180px;
-
-    height:62px;
-
+    height:60px;
     border:none;
-
     border-radius:30px;
-
     background:white;
-
     color:#5b1010;
-
     font-size:21px;
-
     font-weight:bold;
-
     cursor:pointer;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.3);
-
-    transition:.2s;
+    transition:.25s;
 }
 
 .truth-button:hover,
 .dare-button:hover{
-
-    transform:scale(1.07);
+    transform:scale(1.08);
 }
 
-.truth-dare-result{
-
+.truth-result{
     display:none;
-
     width:min(650px,90vw);
-
     padding:25px;
-
+    margin-top:30px;
     border-radius:20px;
-
-    background:rgba(255,255,255,.12);
-
-    font-size:22px;
-
-    line-height:1.5;
-
-    animation:fadeUp .5s ease;
+    background:rgba(255,255,255,.13);
+    font-size:21px;
+    line-height:1.6;
+    animation:pop .5s ease;
 }
 
-.birthday-line{
-
-    display:none;
-
-    margin-top:20px;
-
-    font-size:17px;
-
-    opacity:.9;
-}
-
-
-/* =====================================================
+/* ==============================
    WOULD YOU RATHER
-===================================================== */
+============================== */
 
-.wyr-page{
-
+#wyrPage{
     background:
-
-    radial-gradient(circle at 30% 20%,
-        rgba(255,255,255,.12),
-        transparent 30%),
-
-    linear-gradient(
-        135deg,
-        #063b38,
-        #087f70
-    );
-}
-
-.wyr-page h1{
-
-    font-size:40px;
-
-    margin-bottom:30px;
+        radial-gradient(circle at 30% 20%,rgba(255,255,255,.12),transparent 30%),
+        linear-gradient(135deg,#063b38,#087f70);
 }
 
 .wyr-question{
-
     width:min(700px,90vw);
-
-    font-size:25px;
-
-    line-height:1.5;
-
-    margin-bottom:35px;
-}
-
-.wyr-buttons{
-
-    display:flex;
-
-    gap:25px;
-}
-
-.wyr-button{
-
-    width:240px;
-
-    min-height:70px;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:20px;
-
-    background:white;
-
-    color:#087f70;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-.wyr-result{
-
-    display:none;
-
-    margin-top:25px;
-
-    font-size:20px;
-
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   WISH MAANGO
-===================================================== */
-
-.wish-page{
-
-    background:
-
-    radial-gradient(circle at 50% 25%,
-        rgba(255,255,255,.15),
-        transparent 30%),
-
-    linear-gradient(
-        135deg,
-        #24113f,
-        #7137a5
-    );
-}
-
-.wish-page h1{
-
-    font-size:40px;
-
+    font-size:24px;
+    line-height:1.6;
     margin-bottom:30px;
 }
 
-.wish-input{
+.wyr-buttons{
+    display:flex;
+    gap:20px;
+}
 
-    width:min(500px,85vw);
-
-    padding:15px 20px;
-
+.wyr-button{
+    width:240px;
+    min-height:65px;
+    padding:12px;
     border:none;
+    border-radius:20px;
+    background:white;
+    color:#087f70;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
 
+.wyr-button:hover{
+    transform:translateY(-7px);
+}
+
+.wyr-result{
+    display:none;
+    margin-top:25px;
+    font-size:20px;
+    font-weight:bold;
+    animation:pop .5s ease;
+}
+
+/* ==============================
+   WISH
+============================== */
+
+#wishPage{
+    background:
+        radial-gradient(circle at 50% 20%,rgba(255,255,255,.15),transparent 30%),
+        linear-gradient(135deg,#24113f,#7137a5);
+}
+
+.wish-input{
+    width:min(500px,85vw);
+    padding:15px 20px;
+    border:none;
     border-radius:25px;
-
     outline:none;
-
     font-size:17px;
-
     margin-bottom:18px;
 }
 
 .wish-button{
-
-    width:210px;
-
-    height:58px;
-
+    padding:15px 27px;
     border:none;
-
     border-radius:30px;
-
     background:white;
-
     color:#7137a5;
-
-    font-size:20px;
-
+    font-size:19px;
     font-weight:bold;
-
     cursor:pointer;
 }
 
 .wish-result{
-
     display:none;
-
     width:min(650px,90vw);
-
-    margin-top:30px;
-
-    font-size:20px;
-
+    margin-top:25px;
+    font-size:19px;
     line-height:1.6;
-
-    animation:fadeUp .7s ease;
+    animation:pop .6s ease;
 }
 
-
-/* =====================================================
+/* ==============================
    FINAL WISH
-===================================================== */
+============================== */
 
-.final-wish-page{
-
+#finalWishPage{
     background:
-
-    radial-gradient(circle at center,
-        rgba(255,255,255,.12),
-        transparent 35%),
-
-    linear-gradient(
-        135deg,
-        #073b9c,
-        #2455b8,
-        #4b73d1
-    );
+        radial-gradient(circle at center,rgba(255,255,255,.15),transparent 35%),
+        linear-gradient(135deg,#073b9c,#2455b8,#4b73d1);
 }
 
-.final-wish-page h1{
-
-    font-size:45px;
-
-    margin-bottom:25px;
+.final-title{
+    font-size:clamp(28px,5vw,45px);
+    margin-bottom:20px;
 }
 
 .final-message{
-
     width:min(700px,90vw);
-
-    font-size:21px;
-
+    font-size:20px;
     line-height:1.7;
-
     animation:fadeUp 1s ease;
-
-    margin-bottom:30px;
 }
 
 .final-button{
-
-    width:220px;
-
-    height:60px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:white;
-
+    margin-top:25px;
     color:#073b9c;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-
-/* =====================================================
+/* ==============================
    ANIMATIONS
-===================================================== */
+============================== */
 
 @keyframes fadeUp{
-
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(25px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-/* =====================================================
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ==============================
    MOBILE
-===================================================== */
+============================== */
 
 @media(max-width:600px){
 
-    .page2 h1,
-    .games-page h1,
-    .truth-dare-page h1,
-    .wyr-page h1,
-    .wish-page h1,
-    .final-wish-page h1{
+    .page{
+        padding:20px;
+    }
 
-        font-size:28px;
+    .birthday-small{
+        font-size:19px;
+    }
 
-        margin-bottom:30px;
+    .birthday-sub{
+        font-size:16px;
+    }
+
+    .start-button{
+        margin-top:35px;
     }
 
     .choices,
     .game-buttons,
-    .truth-dare-buttons,
+    .truth-buttons,
     .wyr-buttons{
-
         flex-direction:column;
-
-        gap:18px;
+        gap:15px;
     }
 
     .choice-button{
-
-        width:min(230px,80vw);
-
-        height:90px;
-
-        font-size:21px;
+        width:min(250px,80vw);
+        height:85px;
+        font-size:19px;
     }
 
     .game-button{
-
-        width:min(260px,82vw);
-
-        height:95px;
-
-        font-size:20px;
-    }
-
-    .gift-page h1{
-
-        font-size:28px;
+        width:min(270px,82vw);
+        height:85px;
+        font-size:18px;
     }
 
     .gift-box{
-
         font-size:85px;
     }
 
     .gift-message h2{
-
         font-size:24px;
     }
 
     .gift-message p{
-
-        font-size:18px;
+        font-size:17px;
     }
 
     .truth-button,
     .dare-button{
-
-        width:min(220px,80vw);
-    }
-
-    .truth-dare-result{
-
-        font-size:18px;
+        width:220px;
     }
 
     .wyr-question{
-
-        font-size:20px;
+        font-size:19px;
     }
 
     .wyr-button{
-
         width:min(300px,85vw);
     }
 
-    .wish-input{
-
-        font-size:15px;
-    }
-
-    .wish-result{
-
-        font-size:18px;
-    }
-
     .final-message{
+        font-size:17px;
+        line-height:1.6;
+    }
 
-        font-size:18px;
+    .nav{
+        top:12px;
+        left:12px;
     }
 
     .back-button{
-
-        top:14px;
-
-        left:14px;
-
-        padding:9px 15px;
-
+        padding:9px 14px;
         font-size:14px;
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
+<!-- ==============================
      PAGE 1
-===================================================== -->
+============================== -->
 
-<div class="page" id="page1">
+<div class="page active" id="page1">
 
-    <button
-        class="start-button"
-        onclick="startWebsite()">
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+    <div class="bg-circle c3"></div>
+    <div class="bg-circle c4"></div>
 
-        Start →
+    <div class="birthday-content">
 
-    </button>
+        <div class="birthday-small">
+            🎉 A little something for you...
+        </div>
+
+        <div class="birthday-title">
+            Happy Birthday<br>
+            Isha! 🎂✨
+        </div>
+
+        <div class="birthday-sub">
+            Okay... ab click karna allowed hai 👀
+        </div>
+
+        <button class="start-button" onclick="startWebsite()">
+            Start →
+        </button>
+
+    </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- ==============================
      MAIN MENU
-===================================================== -->
+============================== -->
 
-<div class="page2" id="page2">
+<div class="page" id="page2">
 
     <h1>Okay, ab tum decide karo 👀</h1>
 
     <div class="choices">
 
-        <button
-            class="choice-button"
-            onclick="openGift()">
-
+        <button class="choice-button" onclick="openGift()">
             🎁<br>
             Gift
-
         </button>
 
-
-        <button
-            class="choice-button"
-            onclick="openGames()">
-
+        <button class="choice-button" onclick="openGames()">
             🎮<br>
             Games
-
         </button>
 
-
-        <button
-            class="choice-button"
-            onclick="openFinalWish()">
-
+        <button class="choice-button" onclick="openFinalWish()">
             💌<br>
             Final Wish
-
         </button>
 
     </div>
@@ -1093,75 +825,55 @@ body{
 </div>
 
 
-<!-- =====================================================
+<!-- ==============================
      GIFT
-===================================================== -->
+============================== -->
 
-<div
-    class="gift-page"
-    id="giftPage">
+<div class="page" id="giftPage">
 
-    <button
-        class="back-button"
-        onclick="backToChoices()">
-
-        ← Back
-
-    </button>
-
-
-    <h1>🎁 Ek chhota sa gift hai...</h1>
-
-
-    <div
-        class="gift-box"
-        id="giftBox">
-
-        🎁
-
+    <div class="nav">
+        <button class="back-button" onclick="backToChoices()">
+            ← Back
+        </button>
     </div>
 
+    <div class="gift-title">
+        🎁 Ek chhota sa gift hai...
+    </div>
 
-    <button
-        class="open-gift-button"
-        id="openGiftButton"
-        onclick="revealGift()">
+    <div class="gift-box" id="giftBox">
+        🎁
+    </div>
 
+    <button class="open-gift-button"
+            id="openGiftButton"
+            onclick="revealGift()">
         Open 🎁
-
     </button>
 
-
-    <div
-        class="gift-message"
-        id="giftMessage">
+    <div class="gift-message" id="giftMessage">
 
         <h2>
-            Gift toh invisible hai... 😭
+            Seriously? Itna hi? 👀
         </h2>
 
         <p>
+            Gift toh invisible hai... 😭<br>
             Kyunki asli gift toh tumhara smile hai. 😊
         </p>
 
-        <button
-            class="second-gift-button"
-            id="secondGiftButton"
-            onclick="secondGift()">
-
-            Seriously? Itna hi? 👀
-
+        <button class="second-gift-button"
+                id="secondGiftButton"
+                onclick="secondGift()">
+            Check again 🔍
         </button>
 
-
-        <div
-            class="second-surprise"
-            id="secondSurprise">
+        <div class="second-surprise" id="secondSurprise">
 
             Okay fine 😭<br><br>
 
             <strong>
-                Ek chhoti si wish bhi hai —
+                Ek chhoti si wish bhi hai —<br>
                 hamesha khush rehna. 💙
             </strong>
 
@@ -1172,92 +884,54 @@ body{
 </div>
 
 
-<!-- =====================================================
+<!-- ==============================
      GAMES
-===================================================== -->
+============================== -->
 
-<div
-    class="games-page"
-    id="gamesPage">
+<div class="page" id="gamesPage">
 
-    <button
-        class="back-button"
-        onclick="backToChoices()">
-
-        ← Back
-
-    </button>
-
+    <div class="nav">
+        <button class="back-button" onclick="backToChoices()">
+            ← Back
+        </button>
+    </div>
 
     <h1>
         Okay, ab game khelte hain 😈
     </h1>
 
-
     <div class="game-buttons">
 
-        <button
-            class="game-button"
-            onclick="openTruthDare()">
-
+        <button class="game-button" onclick="openTruthDare()">
             🔥<br>
             Truth or Dare
-
         </button>
 
-
-        <button
-            class="game-button"
-            onclick="openWYR()">
-
+        <button class="game-button" onclick="openWYR()">
             🤔<br>
             Would You Rather
-
         </button>
 
-
-        <button
-            class="game-button"
-            onclick="openWishMaango()">
-
+        <button class="game-button" onclick="openWishMaango()">
             ✨<br>
             Wish Maango
-
         </button>
 
     </div>
 
-
-    <button
-        class="easter-egg-button"
-        onclick="showEasterEgg()">
-
+    <button class="easter-button"
+            onclick="showEasterEgg()">
         Don't click this.
-
     </button>
 
-
-    <div
-        class="easter-result"
-        id="easterResult">
+    <div class="easter-result" id="easterResult">
 
         Maine bola tha mat click karna. 😭
 
         <br><br>
 
-        <button
-            onclick="finishEasterEgg()"
-            style="
-                border:none;
-                border-radius:15px;
-                padding:8px 15px;
-                background:#34205f;
-                color:white;
-                cursor:pointer;
-            ">
-
+        <button onclick="finishEasterEgg()">
             Okay sorry
-
         </button>
 
     </div>
@@ -1265,214 +939,138 @@ body{
 </div>
 
 
-<!-- =====================================================
+<!-- ==============================
      TRUTH OR DARE
-===================================================== -->
+============================== -->
 
-<div
-    class="truth-dare-page"
-    id="truthDarePage">
+<div class="page" id="truthDarePage">
 
-    <button
-        class="back-button"
-        onclick="backToGames()">
+    <div class="nav">
+        <button class="back-button" onclick="backToGames()">
+            ← Back
+        </button>
+    </div>
 
-        ← Back
-
-    </button>
-
-
-    <h1>
+    <div class="game-title">
         🔥 Truth or Dare?
-    </h1>
+    </div>
 
+    <div class="truth-buttons">
 
-    <div class="truth-dare-buttons">
-
-        <button
-            class="truth-button"
-            onclick="showTruth()">
-
+        <button class="truth-button"
+                onclick="showTruth()">
             TRUTH
-
         </button>
 
-
-        <button
-            class="dare-button"
-            onclick="showDare()">
-
+        <button class="dare-button"
+                onclick="showDare()">
             DARE
-
         </button>
 
     </div>
 
-
-    <div
-        class="truth-dare-result"
-        id="truthDareResult">
-
-    </div>
-
-
-    <div
-        class="birthday-line"
-        id="birthdayLine">
-
-        Aaj toh birthday hai...
-        aaj toh maaf kar do 🥲😂
-
+    <div class="truth-result"
+         id="truthDareResult">
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- ==============================
      WOULD YOU RATHER
-===================================================== -->
+============================== -->
 
-<div
-    class="truth-dare-page"
-    id="wyrPage"
-    style="
-        background:
-        radial-gradient(circle at 30% 20%,
-        rgba(255,255,255,.12),
-        transparent 30%),
-        linear-gradient(135deg,#063b38,#087f70);
-    ">
+<div class="page" id="wyrPage">
 
-    <button
-        class="back-button"
-        onclick="backToGames()">
+    <div class="nav">
+        <button class="back-button" onclick="backToGames()">
+            ← Back
+        </button>
+    </div>
 
-        ← Back
-
-    </button>
-
-
-    <h1>
+    <div class="game-title">
         🤔 Would You Rather?
-    </h1>
-
+    </div>
 
     <div class="wyr-question">
 
-        Would you rather have
-        unlimited money 💰
-        <br>
+        Would you rather have<br>
+        unlimited money 💰<br>
         or unlimited free time 😴?
 
     </div>
 
-
     <div class="wyr-buttons">
 
-        <button
-            class="wyr-button"
-            onclick="wyrAnswer('Unlimited Money 💰')">
-
+        <button class="wyr-button"
+                onclick="wyrAnswer('Unlimited Money 💰')">
             Unlimited Money 💰
-
         </button>
 
-
-        <button
-            class="wyr-button"
-            onclick="wyrAnswer('Unlimited Free Time 😴')">
-
+        <button class="wyr-button"
+                onclick="wyrAnswer('Unlimited Free Time 😴')">
             Unlimited Free Time 😴
-
         </button>
 
     </div>
 
-
-    <div
-        class="wyr-result"
-        id="wyrResult">
-
+    <div class="wyr-result"
+         id="wyrResult">
     </div>
 
 </div>
 
 
-<!-- =====================================================
-     WISH MAANGO
-===================================================== -->
+<!-- ==============================
+     WISH
+============================== -->
 
-<div
-    class="truth-dare-page"
-    id="wishPage"
-    style="
-        background:
-        radial-gradient(circle at 50% 25%,
-        rgba(255,255,255,.15),
-        transparent 30%),
-        linear-gradient(135deg,#24113f,#7137a5);
-    ">
+<div class="page" id="wishPage">
 
-    <button
-        class="back-button"
-        onclick="backToGames()">
+    <div class="nav">
+        <button class="back-button" onclick="backToGames()">
+            ← Back
+        </button>
+    </div>
 
-        ← Back
-
-    </button>
-
-
-    <h1>
+    <div class="game-title">
         ✨ Ek wish maango 👀
-    </h1>
-
+    </div>
 
     <input
         class="wish-input"
         id="wishInput"
         type="text"
-        placeholder="Apni wish yahan likho...">
+        placeholder="Apni wish yahan likho..."
+    >
 
-
-    <button
-        class="wish-button"
-        onclick="makeWish()">
-
+    <button class="wish-button"
+            onclick="makeWish()">
         ✨ Wish maang li
-
     </button>
 
-
-    <div
-        class="wish-result"
-        id="wishResult">
-
+    <div class="wish-result"
+         id="wishResult">
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- ==============================
      FINAL WISH
-===================================================== -->
+============================== -->
 
-<div
-    class="final-wish-page"
-    id="finalWishPage">
+<div class="page" id="finalWishPage">
 
-    <button
-        class="back-button"
-        onclick="backToChoices()">
+    <div class="nav">
+        <button class="back-button" onclick="backToChoices()">
+            ← Back
+        </button>
+    </div>
 
-        ← Back
-
-    </button>
-
-
-    <h1>
+    <div class="final-title">
         Okay Isha... ab seriously. 👀
-    </h1>
-
+    </div>
 
     <div class="final-message">
 
@@ -1516,13 +1114,9 @@ body{
 
     </div>
 
-
-    <button
-        class="final-button"
-        onclick="finalSurprise()">
-
+    <button class="final-button"
+            onclick="finalSurprise()">
         🎧 One Last Thing
-
     </button>
 
 </div>
@@ -1530,36 +1124,53 @@ body{
 
 <script>
 
+/* ==============================
+   PAGE CONTROL
+============================== */
 
-/* =====================================================
+function hideAll(){
+
+    document.querySelectorAll(".page")
+        .forEach(page => {
+            page.classList.remove("active");
+        });
+
+}
+
+function showPage(id){
+
+    hideAll();
+
+    document.getElementById(id)
+        .classList.add("active");
+
+}
+
+
+/* ==============================
    START
-===================================================== */
+============================== */
 
 function startWebsite(){
 
-    document.getElementById("page1").style.display="none";
-
-    document.getElementById("page2").style.display="flex";
+    showPage("page2");
 
 }
 
 
-/* =====================================================
+/* ==============================
    GIFT
-===================================================== */
+============================== */
 
 function openGift(){
 
-    document.getElementById("page2").style.display="none";
-
-    document.getElementById("giftPage").style.display="flex";
+    showPage("giftPage");
 
 }
 
-
 function revealGift(){
 
-    const box=
+    const box =
         document.getElementById("giftBox");
 
     box.classList.remove("shake");
@@ -1568,279 +1179,256 @@ function revealGift(){
 
     box.classList.add("shake");
 
+    setTimeout(() => {
 
-    setTimeout(function(){
-
-        box.style.display="none";
+        box.style.display = "none";
 
         document.getElementById(
             "openGiftButton"
-        ).style.display="none";
-
+        ).style.display = "none";
 
         document.getElementById(
             "giftMessage"
-        ).style.display="block";
-
-
-        document.getElementById(
-            "secondGiftButton"
-        ).style.display="inline-block";
+        ).style.display = "block";
 
     },600);
 
 }
 
-
 function secondGift(){
 
     document.getElementById(
         "secondGiftButton"
-    ).style.display="none";
-
+    ).style.display = "none";
 
     document.getElementById(
         "secondSurprise"
-    ).style.display="block";
+    ).style.display = "block";
 
 }
 
 
-/* =====================================================
+/* ==============================
    GAMES
-===================================================== */
+============================== */
 
 function openGames(){
 
-    document.getElementById("page2").style.display="none";
-
-    document.getElementById("gamesPage").style.display="flex";
+    showPage("gamesPage");
 
 }
 
 
-/* =====================================================
-   TRUTH / DARE
-===================================================== */
+/* ==============================
+   TRUTH OR DARE
+============================== */
 
 function openTruthDare(){
 
-    document.getElementById("gamesPage").style.display="none";
-
-    document.getElementById("truthDarePage").style.display="flex";
+    showPage("truthDarePage");
 
 }
 
-
 function showTruth(){
 
-    const result=
+    const result =
         document.getElementById(
             "truthDareResult"
         );
 
-    const birthday=
-        document.getElementById(
-            "birthdayLine"
-        );
+    result.style.display = "block";
 
-
-    result.style.display="block";
-
-    birthday.style.display="none";
-
-
-    result.innerHTML=
+    result.innerHTML =
         "👀 Ye choose nahi kar sakti, Dare choose karo 😭";
 
 }
 
-
 function showDare(){
 
-    const result=
+    const result =
         document.getElementById(
             "truthDareResult"
         );
 
-    const birthday=
-        document.getElementById(
-            "birthdayLine"
-        );
+    result.style.display = "block";
 
-
-    result.style.display="block";
-
-    birthday.style.display="block";
-
-
-    result.innerHTML=
-        "😈 Please unblock kardo 🥲";
+    result.innerHTML =
+        "😈 Please unblock kardo 🥲<br><br>" +
+        "Aaj birthday hai... birthday discount toh banta hai 😂";
 
 }
 
 
-/* =====================================================
+/* ==============================
    WOULD YOU RATHER
-===================================================== */
+============================== */
 
 function openWYR(){
 
-    document.getElementById("gamesPage").style.display="none";
-
-    document.getElementById("wyrPage").style.display="flex";
+    showPage("wyrPage");
 
 }
 
-
 function wyrAnswer(answer){
 
-    const result=
-        document.getElementById("wyrResult");
+    const result =
+        document.getElementById(
+            "wyrResult"
+        );
 
+    result.style.display = "block";
 
-    result.style.display="block";
-
-
-    result.innerHTML=
+    result.innerHTML =
         "😂 You chose: " + answer;
 
 }
 
 
-/* =====================================================
-   WISH MAANGO
-===================================================== */
+/* ==============================
+   WISH
+============================== */
 
 function openWishMaango(){
 
-    document.getElementById("gamesPage").style.display="none";
-
-    document.getElementById("wishPage").style.display="flex";
+    showPage("wishPage");
 
 }
 
-
 function makeWish(){
 
-    const input=
+    const input =
         document.getElementById(
             "wishInput"
         );
 
-    const result=
+    const result =
         document.getElementById(
             "wishResult"
         );
 
+    if(input.value.trim() === ""){
 
-    if(input.value.trim()===""){
-
-        result.innerHTML=
+        result.innerHTML =
             "👀 Pehle wish toh likho...";
 
-        result.style.display="block";
+        result.style.display = "block";
 
         return;
-
     }
 
+    result.innerHTML =
+        "Wish noted. Processing... ⏳" +
+        "<br><br>" +
+        "Error 404: Itni achhi wish ka arrangement nahi hua. 💀" +
+        "<br><br>" +
+        "Waise mazaak alag, hope teri wish sach mein poori ho. :)";
 
-    result.innerHTML=
-
-        "Wish noted. Processing... ⏳"
-
-        +"<br><br>"
-
-        +"Error 404: Itni achhi wish ka arrangement nahi hua. 💀"
-
-        +"<br><br>"
-
-        +"Waise mazaak alag, hope teri wish sach mein poori ho. :)";
-
-
-    result.style.display="block";
+    result.style.display = "block";
 
 }
 
 
-/* =====================================================
+/* ==============================
    FINAL WISH
-===================================================== */
+============================== */
 
 function openFinalWish(){
 
-    document.getElementById("page2").style.display="none";
-
-    document.getElementById("finalWishPage").style.display="flex";
+    showPage("finalWishPage");
 
 }
-
 
 function finalSurprise(){
 
     alert(
-        "🎂 Happy Birthday, Isha! 🎉\n\n"+
+        "🎂 Happy Birthday, Isha! 🎉\n\n" +
         "Yahan hum tumhara special birthday song connect karenge. 🎵"
     );
 
 }
 
 
-/* =====================================================
+/* ==============================
    BACK
-===================================================== */
+============================== */
 
 function backToChoices(){
 
-    document.getElementById("giftPage").style.display="none";
-
-    document.getElementById("gamesPage").style.display="none";
-
-    document.getElementById("finalWishPage").style.display="none";
-
-    document.getElementById("page2").style.display="flex";
+    showPage("page2");
 
 }
-
 
 function backToGames(){
 
-    document.getElementById("truthDarePage").style.display="none";
-
-    document.getElementById("wyrPage").style.display="none";
-
-    document.getElementById("wishPage").style.display="none";
-
-    document.getElementById("gamesPage").style.display="flex";
+    showPage("gamesPage");
 
 }
 
 
-/* =====================================================
+/* ==============================
    EASTER EGG
-===================================================== */
+============================== */
 
 function showEasterEgg(){
 
     document.getElementById(
         "easterResult"
-    ).style.display="block";
+    ).style.display = "block";
 
 }
-
 
 function finishEasterEgg(){
 
     document.getElementById(
         "easterResult"
-    ).innerHTML=
+    ).innerHTML =
         "Good. Ab aage jao. 😂";
 
 }
+
+
+/* ==============================
+   PAGE 1 CONFETTI
+============================== */
+
+function createConfetti(){
+
+    const page =
+        document.getElementById("page1");
+
+    for(let i = 0; i < 35; i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+            Math.random() * 100 + "%";
+
+        piece.style.animationDuration =
+            (3 + Math.random() * 5) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * 5 + "s";
+
+        piece.style.opacity =
+            .3 + Math.random() * .7;
+
+        piece.style.transform =
+            "rotate(" +
+            Math.random() * 360 +
+            "deg)";
+
+        page.appendChild(piece);
+
+    }
+
+}
+
+createConfetti();
 
 </script>
 
 </body>
 </html>
-```
