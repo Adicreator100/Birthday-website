@@ -184,64 +184,6 @@ body{
     transform:translateY(-12px) scale(1.05);
 }
 
-/* =========================
-   DID YOU KNOW
-========================= */
-
-.did-you-know-button{
-    position:absolute;
-    top:18px;
-    left:18px;
-    z-index:100;
-    border:none;
-    border-radius:22px;
-    padding:9px 14px;
-    background:rgba(255,255,255,.95);
-    color:#073b9c;
-    font-size:13px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 6px 20px rgba(0,0,0,.2);
-}
-
-#didYouKnowPage{
-    background:
-        radial-gradient(circle at 15% 20%,#ffcf70,transparent 25%),
-        radial-gradient(circle at 85% 80%,#ff7eb3,transparent 25%),
-        linear-gradient(135deg,#5b247a,#1b5da8);
-}
-
-.did-you-know-page .nav{
-    left:auto;
-    right:18px;
-}
-
-.did-you-know-content{
-    width:min(750px,90vw);
-    animation:enter 1s ease;
-}
-
-.did-you-know-content h1{
-    font-size:clamp(30px,6vw,48px);
-    margin-bottom:30px;
-}
-
-.fact-card{
-    background:rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:22px;
-    padding:20px 25px;
-    margin:12px 0;
-    font-size:18px;
-    line-height:1.5;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-    backdrop-filter:blur(5px);
-}
-
-.fact-card strong{
-    font-size:21px;
-}
-
 /* hidden menu Easter egg */
 
 .hidden-star{
@@ -261,7 +203,7 @@ body{
 
 .nav{
     position:absolute;
-    top:18px;
+    top:68px;
     left:18px;
     z-index:100;
 }
@@ -276,6 +218,57 @@ body{
     font-weight:bold;
     cursor:pointer;
     box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+/* =========================
+   DID YOU KNOW BUTTON
+========================= */
+
+.did-you-know-button{
+    position:fixed;
+    top:18px;
+    left:18px;
+    z-index:1000;
+    border:none;
+    border-radius:20px;
+    padding:8px 13px;
+    background:rgba(255,255,255,.95);
+    color:#073b9c;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 5px 18px rgba(0,0,0,.2);
+    transition:.25s;
+}
+
+.did-you-know-button:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   DID YOU KNOW PAGE
+========================= */
+
+#didYouKnowPage{
+    background:
+        radial-gradient(circle at 15% 20%,#ffd86b,transparent 25%),
+        radial-gradient(circle at 85% 80%,#ff8dc7,transparent 25%),
+        linear-gradient(135deg,#6a11cb,#ff4b91);
+}
+
+.did-title{
+    font-size:clamp(30px,6vw,50px);
+    margin-bottom:30px;
+}
+
+.did-content{
+    width:min(700px,90vw);
+    font-size:19px;
+    line-height:1.8;
+}
+
+.did-content p{
+    margin-bottom:16px;
 }
 
 /* =========================
@@ -903,7 +896,7 @@ body{
     }
 
     .nav{
-        top:12px;
+        top:62px;
         left:12px;
     }
 
@@ -915,39 +908,29 @@ body{
     .did-you-know-button{
         top:12px;
         left:12px;
-        padding:8px 12px;
+        padding:7px 11px;
         font-size:12px;
     }
 
-    .did-you-know-page .nav{
-        top:12px;
-        left:auto;
-        right:12px;
-    }
-
-    .did-you-know-content{
-        margin-top:15px;
-    }
-
-    .did-you-know-content h1{
-        font-size:30px;
-        margin-bottom:20px;
-    }
-
-    .fact-card{
-        padding:14px 16px;
-        font-size:15px;
-        margin:8px 0;
-    }
-
-    .fact-card strong{
-        font-size:17px;
+    .did-content{
+        font-size:16px;
+        line-height:1.6;
     }
 }
 </style>
 </head>
 
 <body>
+
+<!-- =========================
+     DID YOU KNOW BUTTON
+========================= -->
+
+<button class="did-you-know-button"
+        onclick="openDidYouKnow()">
+    Did You Know? 👀
+</button>
+
 
 <!-- =========================
      PAGE 1
@@ -991,12 +974,6 @@ body{
 
 <div class="page" id="page2">
 
-    <!-- NEW: DID YOU KNOW -->
-    <button class="did-you-know-button"
-            onclick="openDidYouKnow()">
-        Did You Know? 👀
-    </button>
-
     <h1>
         Okay, ab tum decide karo 👀
     </h1>
@@ -1023,7 +1000,6 @@ body{
 
     </div>
 
-    <!-- tiny hidden Easter egg -->
     <button class="hidden-star"
             onclick="menuSecret()">
         ✨
@@ -1036,51 +1012,44 @@ body{
      DID YOU KNOW
 ========================= -->
 
-<div class="page did-you-know-page" id="didYouKnowPage">
+<div class="page" id="didYouKnowPage">
 
-    <!-- BACK BUTTON IS NOW TOP RIGHT -->
     <div class="nav">
         <button class="back-button"
-                onclick="backToChoices()">
+                onclick="backToPreviousPage()">
             ← Back
         </button>
     </div>
 
-    <div class="did-you-know-content">
+    <div class="did-title">
+        📅 Did You Know?
+    </div>
 
-        <h1>
-            Did You Know? 👀
-        </h1>
+    <div class="did-content">
 
-        <div class="fact-card">
-            🎂 <strong>26 August</strong><br>
-            Your birthday falls on 26 August — a date with
-            quite a few interesting things attached to it!
-        </div>
+        <p>
+            🎂 <strong>26 August</strong> is a pretty interesting date!
+        </p>
 
-        <div class="fact-card">
-            🐶 <strong>International Dog Day</strong><br>
-            26 August is celebrated as International Dog Day,
-            a day dedicated to celebrating dogs and promoting
-            their well-being.
-        </div>
+        <p>
+            🌍 It's a date on which many different events
+            and moments in history have happened.
+        </p>
 
-        <div class="fact-card">
-            🇺🇸 <strong>Women's Equality Day</strong><br>
-            In the United States, 26 August is observed as
-            Women's Equality Day.
-        </div>
+        <p>
+            ✨ And there's one particularly important fact
+            for this website...
+        </p>
 
-        <div class="fact-card">
-            🌍 <strong>A pretty historic date</strong><br>
-            Many important events, discoveries and birthdays
-            have happened on 26 August throughout history.
-        </div>
+        <p>
+            <strong>
+                Someone's birthday happens to be on 26 August. 👀🎉
+            </strong>
+        </p>
 
-        <div class="fact-card">
-            👀 <strong>And the most important fact...</strong><br>
-            Someone called Isha was born on this date. 😌🎂
-        </div>
+        <p>
+            Yeah... this page was obviously made for that reason. 😂
+        </p>
 
     </div>
 
@@ -1446,6 +1415,8 @@ body{
    PAGE CONTROL
 ========================= */
 
+let previousPage = "page1";
+
 function hideAll(){
 
     document.querySelectorAll(".page")
@@ -1505,7 +1476,22 @@ function openFinalWish(){
 
 function openDidYouKnow(){
 
+    const activePage =
+        document.querySelector(".page.active");
+
+    if(activePage){
+
+        previousPage = activePage.id;
+
+    }
+
     showPage("didYouKnowPage");
+
+}
+
+function backToPreviousPage(){
+
+    showPage(previousPage);
 
 }
 
