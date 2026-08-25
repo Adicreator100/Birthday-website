@@ -228,7 +228,7 @@ body{
     position:absolute;
     top:18px;
     left:18px;
-    z-index:200;
+    z-index:50;
     border:none;
     border-radius:20px;
     padding:8px 13px;
@@ -1068,8 +1068,6 @@ body{
         Kholo na 😭
     </button>
 
-    <!-- first reveal -->
-
     <div class="gift-message"
          id="giftMessage">
 
@@ -1088,8 +1086,6 @@ body{
         </button>
 
     </div>
-
-    <!-- plot twist -->
 
     <div class="plot-twist"
          id="plotTwist">
@@ -1110,8 +1106,6 @@ body{
         </strong>
 
     </div>
-
-    <!-- digital card -->
 
     <div class="digital-card"
          id="digitalCard">
@@ -1366,7 +1360,7 @@ body{
 
 
 <!-- =========================
-     DID YOU KNOW
+     DID YOU KNOW PAGE
 ========================= -->
 
 <div class="page" id="didYouKnowPage">
@@ -1506,11 +1500,19 @@ function openDidYouKnow(){
         previousPage = activePage.id;
     }
 
+    document.querySelector(
+        ".did-you-know-button"
+    ).style.display = "none";
+
     showPage("didYouKnowPage");
 
 }
 
 function backToPreviousPage(){
+
+    document.querySelector(
+        ".did-you-know-button"
+    ).style.display = "block";
 
     showPage(previousPage);
 
